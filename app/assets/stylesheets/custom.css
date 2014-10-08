@@ -67,14 +67,18 @@ th,td {
   padding-bottom: 2%;
 }
 
+.alert {
+  color: white;
+  height: 25px;
+  padding-top: 1%;
+}
+
 .alert-error {
   background-color: #d00000;
-  color: white;
 }
 
 .alert-notice {
   background-color: #458B00;
-  color: white;
 }
 
 

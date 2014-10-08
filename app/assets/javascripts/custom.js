@@ -4,6 +4,7 @@ $(document).on('click', '.create_btn', function() {
 });
 
 $(document).on('keypress', '.text-input', function(e){
+  $('#set_flash_message').removeClass('alert alert-notice alert-error').html('');
   if(e.keyCode == 13){
     validate_and_submit();
     return false
@@ -12,8 +13,9 @@ $(document).on('keypress', '.text-input', function(e){
 
 function validate_and_submit(){
   var url = $('#website_url_name').val();
-  var extension = url.split('.');
-  if((extension.length > 2) && (/^(www\.|http:\/\/www\.|https:\/\/www\.|http:\/\/|[a-z])[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/.test(url)) || url == '')
+  var url_without_domain = url.replace(/^(www\.|http:\/\/www\.|https:\/\/www\.|http:\/\/)/,'');
+  var extension = url_without_domain.split('.');
+  if((extension.length > 1) && (/^(www\.|http:\/\/www\.|https:\/\/www\.|http:\/\/|[a-z]\.|)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/.test(url)) || url == '')
   {
     $('#spinner').show();
     $.ajax({
@@ -22,7 +24,7 @@ function validate_and_submit(){
       data: $('form').serialize()
     });
   }else{
-    $('#set_flash_message').addClass('alert-error').html('URL is not valid');
+    $('#set_flash_message').addClass('alert alert-error').html('URL is not valid');
   }
 }
 
@@ -30,3 +32,7 @@ $(document).ajaxStop(function() {
   $("#spinner").hide();
   $('#website_url_name').val('');
 });
+
+
+//(/^(https?:\/\/(?:www\.|(?!www)|[a-z])[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,})/.test(url))
+//(/^(www\.|http:\/\/www\.|https:\/\/www\.|http:\/\/)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/.test(url))
