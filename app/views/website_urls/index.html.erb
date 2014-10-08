@@ -1,0 +1,11 @@
+<div id='set_form'>
+  <%= form_for :website_url do |f| %>
+    <%= f.label :name, 'Website URL:' %>
+    <%= f.text_field :name, class: 'text-input' %>
+    <%= f.submit 'Create Url', class: 'create_btn' %>
+  <% end %>
+
+  <div id='website_url'>
+    <%= render :partial => '/website_urls/index' %>
+  </div>
+</div>
