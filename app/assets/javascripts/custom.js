@@ -32,7 +32,3 @@ $(document).ajaxStop(function() {
   $("#spinner").hide();
   $('#website_url_name').val('');
 });
-
-
-//(/^(https?:\/\/(?:www\.|(?!www)|[a-z])[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,})/.test(url))
-//(/^(www\.|http:\/\/www\.|https:\/\/www\.|http:\/\/)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/.test(url))
