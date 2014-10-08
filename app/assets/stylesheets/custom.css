@@ -65,3 +65,24 @@ th,td {
 #website_url {
   padding-bottom: 2%;
 }
+
+.alert-error {
+  background-color: #d00000;
+  color: white;
+}
+
+.alert-notice {
+  background-color: #458B00;
+  color: white;
+}
+
+
+#spinner {
+  background: url("/assets/spinner.gif") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+  display: none;
+  min-height: 32px;
+  min-width: 32px;
+  margin-left: 20%;
+  margin-top: -3%;
+  position: absolute;
+}
